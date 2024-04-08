@@ -6,7 +6,18 @@
 </head>
 <body>
 <h1>This si All todos</h1>
+<form action="" method="POST">
+    {% csrf_token %}
+    {{form.task}}
+    <input type="submit" value="Save">
+</form>
+{% for todo in todos %}
+<div>
 
+    {{todo.task}}
+    {{todo.is_done }}
+</div>
 
+{% endfor %}
 </body>
 </html>
