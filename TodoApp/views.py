@@ -18,5 +18,12 @@ def all_todo(requist):
 
 def Edit_Todo(requist, slug):
     todo_to_edit = TodoModel.objects.get(slug=slug)
+    edit_model = TodoModel(slug=slug)
+    if requist.method == "POST":
+        edit_model.task = requist.GET("task")
+        edit_model.is_done = requist.GET("is_done")
+        edit_model.slug = requist.GET("slug")
+        edit_model.save()
+
     context = {"Edit_todo": todo_to_edit }
     return render(requist, "TodoApp/Edit_todo.html", context)

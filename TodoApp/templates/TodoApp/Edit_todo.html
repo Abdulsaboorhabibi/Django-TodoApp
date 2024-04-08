@@ -6,11 +6,14 @@
 </head>
 <body>
 <form method="POST" action="{% url 'list-todo' %}">
+    <div style="display:flex; justify-content: space-between;">
     {% csrf_token %}
-    {{Edit_todo.task}}
-    {{Edit_todo.is_done}}
-    {{Edit_todo.slug }}
+    <p>{{Edit_todo.task}}</p>
+        <input type="checkbox" checked="{{Edit_todo.is_done}}">
+        <input type="text" value="{{ Edit_todo.slug }}" name="" id="">
     <input type="submit" value="Save">
+
+    </div>
 </form>
 </body>
 </html>

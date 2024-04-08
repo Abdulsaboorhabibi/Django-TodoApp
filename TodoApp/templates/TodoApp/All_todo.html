@@ -12,13 +12,21 @@
     <input type="submit" value="Save">
 </form>
 {% for todo in todos %}
-<div style="display: flex">
+<div style="display: flex; justify-content: space-between;">
+    <div style="width: 60%; display:flex; justify-content:space-between">
+        <p>{{todo.task}}</p>
+        <input type="checkbox" checked="{{ todo.is_done }} " name="is_done" id="is_done">
+    </div>
 
-    {{todo.task}}
-    {{todo.is_done }}
-    <a href="  {% url 'Edit-todo' todo.slug %}">
-        <input type="button" value="Edit">
-    </a>
+    <div style="width: 20%;">
+        <a href="  {% url 'Edit-todo' todo.slug %}">
+            <input type="button" value="Edit">
+        </a>
+        <a href="  {% url 'Edit-todo' todo.slug %}">
+            <input type="button" value="Delete">
+        </a>
+    </div>
+
 </div>
 
 {% endfor %}
