@@ -5,12 +5,12 @@
     <title>Edit</title>
 </head>
 <body>
-<form method="POST" action="{% url 'list-todo' %}">
+<form method="GET" action="{% url 'list-todo' %}">
     <div style="display:flex; justify-content: space-between;">
     {% csrf_token %}
-    <p>{{Edit_todo.task}}</p>
-        <input type="checkbox" checked="{{Edit_todo.is_done}}">
-        <input type="text" value="{{ Edit_todo.slug }}" name="" id="">
+        <input type="text" value="{{Edit_todo.task}}" name="task" id="task" />
+        <input type="checkbox" checked="{{ Edit_todo.is_done }}" name="is_done" id="is_done" />
+        <input type="text" value="{{ Edit_todo.slug }}" name="slug" id="slug" >
     <input type="submit" value="Save">
 
     </div>

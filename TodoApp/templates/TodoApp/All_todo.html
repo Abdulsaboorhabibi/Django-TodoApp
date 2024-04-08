@@ -2,14 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width:device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
     <title>All Todos</title>
 </head>
-<body>
+<body class="p-10">
 <h1>This si All todos</h1>
 <form action="" method="POST">
     {% csrf_token %}
-    {{form.task}}
-    <input type="submit" value="Save">
+    {{form.task }}
+    <input type="submit" class="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50" value="Save">
 </form>
 {% for todo in todos %}
 <div style="display: flex; justify-content: space-between;">
@@ -18,12 +20,12 @@
         <input type="checkbox" checked="{{ todo.is_done }} " name="is_done" id="is_done">
     </div>
 
-    <div style="width: 20%;">
-        <a href="  {% url 'Edit-todo' todo.slug %}">
-            <input type="button" value="Edit">
+    <div style="width: 20%;" class="p-1 m-2">
+        <a href="  {% url 'Edit-todo' todo.slug %}" class="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
+            Edit
         </a>
-        <a href="  {% url 'Edit-todo' todo.slug %}">
-            <input type="button" value="Delete">
+        <a href="  {% url 'Edit-todo' todo.slug %}" class="rounded-md bg-white px-2.5 py-1.5 ml-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
+           Delete
         </a>
     </div>
 
