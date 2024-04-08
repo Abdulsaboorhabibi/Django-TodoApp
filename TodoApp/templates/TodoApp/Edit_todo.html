@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit</title>
+</head>
+<body>
+<form method="POST" action="{% url 'list-todo' %}">
+    {% csrf_token %}
+    {{Edit_todo.task}}
+    {{Edit_todo.is_done}}
+    {{Edit_todo.slug }}
+    <input type="submit" value="Save">
+</form>
+</body>
+</html>

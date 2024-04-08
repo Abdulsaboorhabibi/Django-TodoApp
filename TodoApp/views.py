@@ -12,8 +12,11 @@ def all_todo(requist):
         if form.is_valid():
             form.save()
 
-    context = {
-        "form": form,
-        "todos": todos
-    }
+    context = {"form": form, "todos": todos}
     return render(requist, "TodoApp/All_todo.html", context)
+
+
+def Edit_Todo(requist, slug):
+    todo_to_edit = TodoModel.objects.get(slug=slug)
+    context = {"Edit_todo": todo_to_edit }
+    return render(requist, "TodoApp/Edit_todo.html", context)
